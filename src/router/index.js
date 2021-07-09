@@ -1,23 +1,45 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import Errorpage from '../views/Errorpage.vue'
+import Dashboard from '../views/Dashboard.vue'
+import Report from '../views/Report.vue'
+import Campaign from '../views/Campaign.vue'
+import Calculate from '../views/Calculate.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Login',
+    component: Login
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/errorpage',
+    name: 'Errorpage',
+    component: Errorpage
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: Report
+  },
+  {
+    path: '/campaign',
+    name: 'Campaign',
+    component: Campaign
+  },
+  {
+    path: '/calculate',
+    name: 'Calculate',
+    component: Calculate
+  },
 ]
 
 const router = new VueRouter({
