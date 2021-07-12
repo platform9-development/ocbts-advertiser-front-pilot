@@ -7,7 +7,32 @@
     permanent
     app
     >
-
+      <v-list>
+        <v-subheader>PEPORTS</v-subheader>
+        <v-list-item-group
+        v-model="selectedItem"
+        >
+          <v-list-item
+            v-for="(item,i) in navListItem"
+            :key="i"
+            color="white"
+          >
+            <v-list-item-icon>
+              <v-icon>{{item.icon}}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{item.text}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block>
+            Logout
+          </v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
     <v-app-bar
       app
@@ -47,7 +72,13 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
-  }),
+      selectedItem: 1,
+      navListItem: [
+        { text: 'Dashboard', icon: 'mdi-poll' },
+        { text: '리포트', icon: 'mdi-script-text' },
+        { text: '캠페인', icon: 'mdi-cogs' },
+        { text: '정산', icon: 'mdi-credit-card-check' },
+      ],
+    }),
 };
 </script>
